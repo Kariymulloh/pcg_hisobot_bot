@@ -1,0 +1,12 @@
+{
+  "name": "pcg-telegram-bot",
+  "version": "1.0.0",
+  "description": "Hisobot topshirish uchun Telegram bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}
