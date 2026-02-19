@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const data = require('./data');
 
 const BOT_TOKEN = '8381562857:AAEHhGq8lCAVR5l5kK-4B4OvPp9-B8y8vm4';
-const GROUP_ID = -1003683760086;
+const GROUP_ID = -1003828590654;
 
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
 
@@ -128,7 +128,12 @@ bot.on('message', async (msg) => {
       const today = new Date().toISOString().split('T')[0];
       data.addDailyReport(userId, today);
       
-      await bot.sendMessage(chatId, 'Hisobot qabul qilindi va raxbarlarga yuborildi. Rahmat!');
+      const confirmMessage = `Xurmatli ${firstName} ${lastName} sizning hisobotingizni qabul qildim va kerakli raxbarlarga allaqachon yubordim.
+
+Yana hisobotlar bo'lsa yuborishingiz mumkin.
+
+<b>Yaxshi ishlang! )</b>`;
+      await bot.sendMessage(chatId, confirmMessage, { parse_mode: 'HTML' });
     }
   } catch (err) {
     console.error('Xabar yuborishda xato:', err);
